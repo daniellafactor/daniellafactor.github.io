@@ -163,6 +163,23 @@ img {vertical-align: middle;}
 a {
     color: #9a4e8d;
 }
+
+/* Body */
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main {
+    flex: 100%;
+    background-color: white;
+    padding: 20px;
+}
+
 </style>
 </head>
 <body>
@@ -205,6 +222,12 @@ a {
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<div class="row">
+    <div class="main">The World's Largest Rodent</div>
+    <div class="main">Aliens That Live Underwater</div>
+    <div class="main">Is That a Pokémon?</div>
 </div>
 
 <div class="footer">
