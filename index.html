@@ -197,19 +197,46 @@ a {
 }
 
 .nudibranch {
-    flex: 50%;
+    flex: 100%;
     background-color: #daa03d;
     color: #616247;
     padding: 20px;
     font-family: 'Permanent Marker', cursive;
 }
 
-.nudichart {
-    flex: 50%;
-    background-color: #daa03d;
-    color: #616247;
-    padding: 20px;
-    font-family: 'Permanent Marker', cursive;
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
 }
 
 .aboutme {
@@ -279,7 +306,51 @@ a {
     </div>
     
     <div class="nudibranch"><h1 id="nudibranch">Is That a Pokémon?</h1>
-        <p>I asked this person (that I have a really huge friend crush on) about her favorite animal, and given that this person is a biologist, I knew that my mind would be blown. BAM! Nudibranchs! (Still not sure if I pronounce the name correctly...) These vibrantly colored sea slugs have a really cool technique for keeping themselves safe from predators! Nudibranchs eat these creatures called hydroids, and like jellyfish, hydroids shoot out poisonous nematocysts to sting.</p>
+        <p>I asked this person (that I have a really huge friend crush on) about her favorite animal, and given that this person is a biologist, I knew that my mind would be blown. BAM! Nudibranchs! (Still not sure if I pronounce the name correctly...) These vibrantly colored sea slugs have a really cool technique for keeping themselves safe from predators! Nudibranchs eat these creatures called hydroids, and like jellyfish, hydroids shoot out poisonous nematocysts to sting. When digesting the feast, the unexploded nematocysts</p>
+        
+        <h2>My Customers</h2>
+
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+        <table id="myTable">
+          <tr class="header">
+            <th style="width:60%;">Name</th>
+            <th style="width:40%;">Country</th>
+          </tr>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Berglunds snabbkop</td>
+            <td>Sweden</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Koniglich Essen</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Canada</td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Italy</td>
+          </tr>
+          <tr>
+            <td>North/South</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Paris specialites</td>
+            <td>France</td>
+          </tr>
+        </table>
+
     </div>
     
     <div class="aboutme"><h1 id="aboutme">About Me</h1>
@@ -335,6 +406,25 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
+}
+
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
 }
 </script>
 
